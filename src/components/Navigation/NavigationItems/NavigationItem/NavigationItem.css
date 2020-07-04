@@ -16,6 +16,7 @@
 .NavigationItem a:hover, 
 .NavigationItem a:active{
     border-bottom: 2px solid rgb(107, 14, 14);
+ 
 
 }
 .NavigationItem a.active{

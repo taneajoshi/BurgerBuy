@@ -7,7 +7,7 @@ const toolbar = (props)=>(
     <div className={classes.MenuLogo}>
         <div className={classes.MenuLogo}> <Logo/></div>
         </div>
-    <nav>
+    <nav className={classes.DesktopOnly}> 
         <Navigation/>
     </nav>
     <div>MENU</div>

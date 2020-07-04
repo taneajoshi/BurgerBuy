@@ -22,3 +22,31 @@
 .NavigationItem a.active{
     color: rgb(122, 16, 16);
 }
+
+
+/* FOR SIDE DRAWERS */
+
+@media (min-width:500px){
+    .NavigationItem{
+        margin: 0;
+        width: auto;
+        display: block;
+        align-items: center;
+        height: 100%;
+    }
+    .NavigationItem a{
+        color: black;
+        text-decoration: none;
+        width: 100%;
+        box-sizing: border-box;
+        display: block;
+    }
+    .NavigationItem a:hover, 
+    .NavigationItem a:active{
+        color: rgb(122, 16, 16);
+     
+    
+    }
+   
+    
+}

@@ -19,3 +19,10 @@
 .MenuLogo{
   margin-top: 40px;
 }
+
+@media (max-width:499px){
+  .DesktopOnly{
+    display: none;
+  }
+
+}

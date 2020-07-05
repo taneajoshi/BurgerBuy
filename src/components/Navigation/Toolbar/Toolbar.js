@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Toolbar.css';
 import Logo from '../../Logo/Logo';
 import Navigation from '../NavigationItems/NavigationItems';
+import Menu from '../../Menu/Menu';
 const toolbar = (props)=>(
    <header className={classes.Toolbar}>
     <div className={classes.MenuLogo}>
@@ -10,7 +11,7 @@ const toolbar = (props)=>(
     <nav className={classes.DesktopOnly}> 
         <Navigation/>
     </nav>
-    <div>MENU</div>
+    <div><Menu className={classes.MobileOnly} clicked={props.MenuClicked}/></div>
     
 
    </header>

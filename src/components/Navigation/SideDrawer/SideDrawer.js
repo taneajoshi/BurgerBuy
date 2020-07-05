@@ -7,7 +7,7 @@ import Auc from '../../../hoc/aux';
 const sideDrawer = (props) =>{
     return(
         <Aux>
-        <Modal/>
+        <Backdrop/>
         <div className={classes.SideDrawer}>
             <div className={classes.Logo}> <Logo/></div>
          

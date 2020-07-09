@@ -6,7 +6,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
-
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 const INGREDIENT_PRICES={
     salad:0.5,
     cheese:0.4,
@@ -20,19 +20,19 @@ class BurgerBuilder extends Component{
     //     this.state = {...}
     // } This is old way
     state= {
-        ingredients : {
-            salad: 0,
-            bacon:0,
-            cheese:0,
-            meat:0
-
-        },
+        ingredients :null,
         totalPrice:4, //Base Price
         purchasable: false,
         purchasing:false,
         loading: false
     }
 
+    componentDidMount(){
+        axios.get('https://big-burger-builder.firebaseio.com/ingredients.json')
+        .then(response=> {
+            this.setState({ingredients :response.data})
+        })
+    }
     updatePurchaseState(ingredients    ){
           
           const sum = Object.keys(ingredients).map(igKey=>{
@@ -85,7 +85,7 @@ class BurgerBuilder extends Component{
             deliveryMethod: 'fastest'
         }
 
-       axios.post('/orders.json', order)
+       axios.post('/orders.jsn', order)
        .then(res => {
            this.setState({loading:false, purchasing: false})
        })
@@ -149,4 +149,4 @@ class BurgerBuilder extends Component{
     }
 }
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder,axios);

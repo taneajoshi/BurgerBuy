@@ -20,19 +20,19 @@ class BurgerBuilder extends Component{
     //     this.state = {...}
     // } This is old way
     state= {
-        ingredients :null,
+        ingredients : {
+            salad: 0,
+            bacon:0,
+            cheese:0,
+            meat:0
+
+        },
         totalPrice:4, //Base Price
         purchasable: false,
         purchasing:false,
         loading: false
     }
 
-    componentDidMount(){
-        axios.get('https://big-burger-builder.firebaseio.com/ingredients.json')
-        .then(response=> {
-            this.setState({ingredients :response.data})
-        })
-    }
     updatePurchaseState(ingredients    ){
           
           const sum = Object.keys(ingredients).map(igKey=>{
@@ -74,18 +74,18 @@ class BurgerBuilder extends Component{
             ingredients: this.state.ingredients,
             price: this.state.totalPrice,
             customer:{
-                name: 'Tanea Joshi',
+                name: 'Why Joshi',
                 address:{
                     street: 'JustaTeststreet 1',
                     zipCode: '263139',
                     country: 'India'
                 },
-                email:'tanea@gmail.com'
+                email:'why@gmail.com'
             },
             deliveryMethod: 'fastest'
         }
 
-       axios.post('/orders.jsn', order)
+       axios.post('/orders.json', order)
        .then(res => {
            this.setState({loading:false, purchasing: false})
        })
